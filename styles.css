@@ -253,3 +253,65 @@ a, button { touch-action: manipulation; }
 /* Animación sutil para entradas de párrafo */
 .page p { opacity: 0; transform: translateY(4px); animation: fadeInText .5s ease forwards .12s; }
 @keyframes fadeInText { to { opacity: 1; transform: none; } }
+
+/* ===============================
+   📱 MEJORAS PARA MÓVIL (RESPONSIVE)
+   =============================== */
+img { max-width: 100%; height: auto; display: block; }
+
+@media (max-width: 600px) {
+    :root { --primary: #00ACC1; }
+    .container {
+        max-width: 100%;
+        margin: 12px;
+        border-radius: 12px;
+    }
+
+    .hero {
+        padding: 36px 16px;
+        min-height: 320px;
+        border-radius: 12px;
+    }
+
+    .hero h1 { font-size: clamp(28px, 8vw, 48px); }
+    .hero h2 { font-size: clamp(16px, 5vw, 24px); }
+
+    .page { padding: 20px; min-height: auto; padding-bottom: 110px; }
+    .page p { font-size: 16px; }
+
+    .page-counter { font-size: 16px; }
+
+    /* Navegación fija en la parte inferior para móvil */
+    .navigation {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        gap: 12px;
+        justify-content: space-between;
+        padding: 10px 12px;
+        background: linear-gradient(135deg, #80DEEA 0%, #F48FB1 100%);
+        box-shadow: 0 -6px 20px rgba(0,0,0,0.08);
+        z-index: 999;
+    }
+
+    .nav-btn {
+        flex: 1;
+        margin: 0 6px;
+        padding: 12px 10px;
+        font-size: 18px;
+        border-radius: 12px;
+        min-height: 48px;
+    }
+
+    /* Asegurar que el contenido no quede detrás de la barra */
+    body { padding-bottom: 84px; }
+}
+
+/* Evitar que elementos fijos se solapen en pantallas muy pequeñas */
+@media (max-width: 360px) {
+    .navigation { padding: 8px; gap: 8px; }
+    .nav-btn { font-size: 16px; padding: 10px 8px; }
+}
+
